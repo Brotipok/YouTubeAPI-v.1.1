@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import '../bootstrap/css/bootstrap.css';
+import './style.css';
 
 	class Video extends Component {
 
@@ -7,8 +9,10 @@ import { Link } from 'react-router-dom';
 			const id = `https://www.youtube.com/embed/` + this.props.location.pathname.slice(7) + `?autoplay=1`;
 			return(
 				<div>
-					<Link to="/">Home</Link><br/>
-					<embed width="420" height="315" src= {id}/>
+					<div className='link'>
+					<Link to="/"><h1>Home</h1></Link>
+					</div>
+					<iframe className="video" src={id}/>
 				</div>
 			)
 		};

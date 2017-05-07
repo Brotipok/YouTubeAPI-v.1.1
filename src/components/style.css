@@ -1,0 +1,35 @@
+.videoSearch-input {
+	font-size: 25px;
+	margin: 10px;
+}
+
+.thumbnail{
+	margin: auto;
+}
+
+ .video-list{
+	border: 2px solid purple;
+	border-radius: 5px;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 2px;
+	background-color: rgba(0,0,0,0.6);
+}
+
+.media-heading {
+	line-height: 1.8;
+	color: white;
+}
+
+.link {
+	height: 20px;
+	width: 10%;
+}
+ .video {
+ 	margin-left: 12%;
+	border: 2px solid purple;
+	border-radius: 5px;
+	width: 75%;
+	height: 600px;
+}

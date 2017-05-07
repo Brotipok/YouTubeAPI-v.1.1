@@ -2,10 +2,8 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import './App.css';
 import SearchBar from './components/search_bar';
-import YTSearch from './components/youtubeSearchAPI';
 import VideoList from './components/video_list';
-
-const API_KEY = 'AIzaSyBAC08O4GSIQ88uQQO1qSA10tqF1dCwllo';
+import {connect} from 'react-redux';
 
 class App extends Component {
 
@@ -14,29 +12,27 @@ class App extends Component {
     this.state = { 
       videos: [],
     };
-
   }
 
-  videoSearch(term) {
-    YTSearch({key: API_KEY, term: term}, (videos) => {
-      this.setState({
-        videos: videos,
-      });
-    });
+  videoShow(videos){
+    this.setState({videos: this.props.state[0]});
   }
 
   render() {
-    const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 300);
+    const videoShow = _.debounce((videos) => {this.videoShow(videos)}, 300);
     return (
       <div className="App">
-        <SearchBar onSubmit={videoSearch} />
+        <SearchBar onSubmit={videoShow}/>
         <div>
-        <VideoList
-          videos={this.state.videos} />
+        <VideoList videos={this.state.videos} />
         </div>
       </div>
     );
   }
 }
-
-export default App;
+export default connect(
+  state => ({
+    state: state
+  }),
+  dispatch => ({})
+)(App);
